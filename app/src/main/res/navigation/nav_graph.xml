@@ -1,0 +1,61 @@
+<!-- nav_graph.xml -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.oza.challenge.ui.login.LoginFragment"
+        android:label="LoginFragment">
+
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/loginFragment"
+            app:popUpToInclusive="true"/>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.oza.challenge.ui.register.RegistrationFragment"
+        android:label="RegistrationFragment">
+
+        <action
+            android:id="@+id/action_registrationFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/loginFragment"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.oza.challenge.ui.home.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment">
+
+            <argument
+                android:name="item"
+                app:argType="com.oza.challenge.model.ImageData" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/imageDetailsFragment"
+        android:name="com.oza.challenge.ui.details.ImageDetailFragment"
+        android:label="ImageDetailsFragment" />
+
+
+
+</navigation>

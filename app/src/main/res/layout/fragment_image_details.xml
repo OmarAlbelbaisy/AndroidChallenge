@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="image"
+            type="com.oza.challenge.model.ImageData" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context=".view.PhotosActivity">
+
+                    <TextView
+                        android:id="@+id/text_view_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:text="@{image.tags}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Title" />
+
+
+                    <ImageView
+                        android:id="@+id/image_view_thumb"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        app:imageUrl="@{image.largeImageURL}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_view_title"
+                        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                    <TextView
+                        android:id="@+id/text_view_image_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@{image.type}"
+                        android:textColor="@color/yellow"
+                        app:layout_constraintBottom_toTopOf="@+id/text_view_image_size"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="20/12/2020" />
+
+                    <TextView
+                        android:id="@+id/text_view_image_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@{String.valueOf(image.imageSize)}"
+                        android:textColor="@color/yellow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="516515" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/text_view_uploader_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@{image.user}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Ahmed Samy" />
+
+            <TextView
+                android:id="@+id/text_view_views_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@{String.valueOf(image.views)}"
+                app:drawableStartCompat="@drawable/view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1000" />
+
+            <TextView
+                android:id="@+id/text_view_likes_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@{String.valueOf(image.likes)}"
+                app:drawableStartCompat="@drawable/like"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1000" />
+
+            <TextView
+                android:id="@+id/text_view_comments_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@{String.valueOf(image.comments)}"
+                app:drawableStartCompat="@drawable/comment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1000" />
+
+            <TextView
+                android:id="@+id/text_view_downloads_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:padding="16dp"
+                android:text="@{String.valueOf(image.downloads)}"
+                app:drawableStartCompat="@drawable/download"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1000" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
