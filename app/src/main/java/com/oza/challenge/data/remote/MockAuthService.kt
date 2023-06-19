@@ -9,11 +9,11 @@ import javax.inject.Singleton
 class MockAuthService : AuthService {
 
     override suspend fun login(loginRequest: LoginRequest): AuthResponse {
-        return AuthResponse("01", loginRequest.email, loginRequest.password, "dummyToken")
+        return AuthResponse("01", loginRequest.email, "dummyToken")
     }
 
     override suspend fun register(user: User): AuthResponse {
-        return AuthResponse("01", user.email, user.password, "dummyToken")
+        return AuthResponse("01", user.email, "dummyToken")
     }
 
 }
