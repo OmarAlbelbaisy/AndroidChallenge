@@ -11,12 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.oza.challenge.R
 import com.oza.challenge.data.local.AppCache
-import com.oza.challenge.databinding.FragmentLoginBinding
 import com.oza.challenge.databinding.FragmentRegisterBinding
-import com.oza.challenge.model.LoginRequest
 import com.oza.challenge.model.User
-import com.oza.challenge.ui.MainActivity
-import com.oza.challenge.ui.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -64,14 +60,6 @@ class RegistrationFragment : Fragment() {
                 .show()
         }
 
-        viewModel.emailError.observe(viewLifecycleOwner) {
-            binding.emailInputLayout.error = if (it) {
-                getString(R.string.error_email)
-            } else {
-                null
-            }
-        }
-
         viewModel.passwordError.observe(viewLifecycleOwner) {
             binding.passwordInputLayout.error = if (it) {
                 getString(R.string.error_password)
@@ -81,7 +69,7 @@ class RegistrationFragment : Fragment() {
         }
 
         viewModel.ageError.observe(viewLifecycleOwner) {
-            binding.ageEditText.error = if (it) {
+            binding.inputLayoutAge.error = if (it) {
                 getString(R.string.error_age)
             } else {
                 null

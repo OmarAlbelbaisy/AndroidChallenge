@@ -5,12 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.oza.challenge.databinding.FragmentImageDetailsBinding
 import com.oza.challenge.model.ImageData
-import com.oza.challenge.ui.home.HomeViewModel
 
 class ImageDetailFragment : Fragment() {
 
@@ -30,7 +26,7 @@ class ImageDetailFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        if(arguments != null) {
+        if (arguments != null) {
             binding.image = requireArguments().getSerializable("item") as ImageData
         }
 
@@ -40,5 +36,6 @@ class ImageDetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }

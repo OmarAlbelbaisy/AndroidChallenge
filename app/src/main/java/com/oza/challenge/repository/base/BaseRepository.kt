@@ -24,18 +24,35 @@ open class BaseRepository {
                         Timber.w(throwable.message())
                         Resource.Failure(throwable.code(), "" + throwable.message)
                     }
+
                     is UnknownHostException -> {
-                        Resource.Failure(0, App.getAppContext().getString(R.string.error_no_internet))
+                        Resource.Failure(
+                            0,
+                            App.getAppContext().getString(R.string.error_no_internet)
+                        )
                     }
+
                     is SocketTimeoutException -> {
-                        Resource.Failure(0, App.getAppContext().getString(R.string.error_socket_timeout))
+                        Resource.Failure(
+                            0,
+                            App.getAppContext().getString(R.string.error_socket_timeout)
+                        )
                     }
+
                     is SSLHandshakeException -> {
-                        Resource.Failure(0, App.getAppContext().getString(R.string.error_ssl_handshake))
+                        Resource.Failure(
+                            0,
+                            App.getAppContext().getString(R.string.error_ssl_handshake)
+                        )
                     }
+
                     is JSONException -> {
-                        Resource.Failure(0, App.getAppContext().getString(R.string.error_json_parsing))
+                        Resource.Failure(
+                            0,
+                            App.getAppContext().getString(R.string.error_json_parsing)
+                        )
                     }
+
                     else -> {
                         Timber.w("Error:: " + throwable.message)
                         Resource.Failure(-1, "Unknown Error")

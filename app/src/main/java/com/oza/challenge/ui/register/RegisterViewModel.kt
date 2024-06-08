@@ -10,7 +10,6 @@ import com.oza.challenge.model.User
 import com.oza.challenge.repository.AuthRepository
 import com.oza.challenge.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.lang.NumberFormatException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,9 +38,9 @@ class RegisterViewModel @Inject constructor(private val authRepository: AuthRepo
             emailError.value = true
         } else if (!isPasswordValid(user.password)) {
             passwordError.value = true
-        } else if(!isAgeValid(user.age)) {
+        } else if (!isAgeValid(user.age)) {
             ageError.value = true
-        }else {
+        } else {
             // Call the login method in the repository and update the login result LiveData accordingly
             handleResource(
                 { authRepository.register(user) },

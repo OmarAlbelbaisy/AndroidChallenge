@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.Navigation.findNavController
 import com.oza.challenge.R
-import com.oza.challenge.model.LoginRequest
 import com.oza.challenge.model.AuthResponse
+import com.oza.challenge.model.LoginRequest
 import com.oza.challenge.repository.AuthRepository
 import com.oza.challenge.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -9,7 +9,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val pixabayRepository: PixabayRepository) : BaseViewModel() {
+class HomeViewModel @Inject constructor(private val pixabayRepository: PixabayRepository) :
+    BaseViewModel() {
 
     private val _pixabayResponseLiveData = MutableLiveData<PixabayResponse>()
     val pixabayResponseLiveData: LiveData<PixabayResponse> = _pixabayResponseLiveData

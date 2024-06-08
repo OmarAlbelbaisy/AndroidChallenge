@@ -13,6 +13,6 @@ interface PixabayService {
         @Query("q") query: String?,
         @Query("image_type") imageType: String = "photo",
         @Query("key") apiKey: String = BuildConfig.API_KEY,
-        ): PixabayResponse
+    ): PixabayResponse
 
 }

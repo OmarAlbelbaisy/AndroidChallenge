@@ -1,7 +1,7 @@
 package com.oza.challenge.data.remote
 
-import com.oza.challenge.model.LoginRequest
 import com.oza.challenge.model.AuthResponse
+import com.oza.challenge.model.LoginRequest
 import com.oza.challenge.model.User
 import javax.inject.Singleton
 

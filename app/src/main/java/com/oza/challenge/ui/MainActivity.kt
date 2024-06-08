@@ -1,34 +1,38 @@
 package com.oza.challenge.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.oza.challenge.R
-import com.oza.challenge.model.ImageData
-import com.oza.challenge.ui.details.ImageDetailFragment
-import com.oza.challenge.ui.home.HomeFragment
-import com.oza.challenge.ui.home.ItemClickListener
-import com.oza.challenge.ui.login.LoginFragment
-import com.oza.challenge.ui.register.RegistrationFragment
+import com.oza.challenge.data.local.AppCache
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity()  {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+
+    @Inject
+    lateinit var cache: AppCache
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // Find the NavHostFragment
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
 
         // Get the NavController
         navController = navHostFragment.navController
+
+        // Get Nav Graph
+        val navGraph = navHostFragment.navController.navInflater.inflate(R.navigation.nav_graph)
+        val destination = if (cache.token.isNullOrEmpty()) R.id.loginFragment else R.id.homeFragment
+        navGraph.setStartDestination(destination)
+        navController.graph = navGraph
 
     }
 

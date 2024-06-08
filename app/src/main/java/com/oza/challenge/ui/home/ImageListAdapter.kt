@@ -9,7 +9,8 @@ import com.oza.challenge.databinding.ItemImageBinding
 import com.oza.challenge.model.ImageData
 
 
-class ImageListAdapter (private val clickListener: ItemClickListener): ListAdapter<ImageData, ImageListAdapter.ImageViewHolder>(DiffCallback()) {
+class ImageListAdapter(private val clickListener: ItemClickListener) :
+    ListAdapter<ImageData, ImageListAdapter.ImageViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,7 +23,10 @@ class ImageListAdapter (private val clickListener: ItemClickListener): ListAdapt
         holder.bind(image)
     }
 
-    class ImageViewHolder(private val binding: ItemImageBinding, private val clickListener: ItemClickListener) : RecyclerView.ViewHolder(binding.root) {
+    class ImageViewHolder(
+        private val binding: ItemImageBinding,
+        private val clickListener: ItemClickListener
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(image: ImageData) {
             // Bind the image data to the item view

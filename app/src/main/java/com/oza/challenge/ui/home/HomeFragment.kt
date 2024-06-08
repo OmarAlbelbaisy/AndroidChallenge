@@ -19,7 +19,6 @@ import com.oza.challenge.R
 import com.oza.challenge.databinding.FragmentHomeBinding
 import com.oza.challenge.model.ImageData
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import java.util.Objects
 
 
@@ -47,7 +46,7 @@ class HomeFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
-        imagesAdapter = ImageListAdapter(object: ItemClickListener{
+        imagesAdapter = ImageListAdapter(object : ItemClickListener {
             override fun onItemClick(item: ImageData) {
                 val action = HomeFragmentDirections.actionHomeFragmentToImageDetailsFragment(item)
                 findNavController().navigate(action)
@@ -71,7 +70,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.swipeToRefresh.setOnRefreshListener {
-            binding.swipeToRefresh.isRefreshing = false;
+            binding.swipeToRefresh.isRefreshing = false
             viewModel.search()
         }
 

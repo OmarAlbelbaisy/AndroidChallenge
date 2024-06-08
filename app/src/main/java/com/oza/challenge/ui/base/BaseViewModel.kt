@@ -54,6 +54,7 @@ open class BaseViewModel : ViewModel() {
                     progressLiveData.postValue(false)
                     responseLiveData?.postValue(result.data)
                 }
+
                 else -> {
                     progressLiveData.postValue(false)
                     val error = (result as Resource.Failure)

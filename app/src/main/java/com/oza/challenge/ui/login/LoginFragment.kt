@@ -10,14 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.oza.challenge.R
-import com.oza.challenge.common.Resource
 import com.oza.challenge.data.local.AppCache
-import com.oza.challenge.databinding.FragmentImageDetailsBinding
 import com.oza.challenge.databinding.FragmentLoginBinding
 import com.oza.challenge.model.LoginRequest
-import com.oza.challenge.ui.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
